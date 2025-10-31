@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Elder Timer (Alt1)</title>
+  <script src="https://runeapps.org/alt1lib.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🪓 Elder Timer</h1>
+      <div id="a1status" class="pill">checking Alt1…</div>
+    </header>
+
+    <section class="grid grid-3">
+      <div class="card span-3">
+        <h2>Now at: <span id="locTitle">Edgeville</span></h2>
+        <div class="row">
+          <label class="inline"><input type="checkbox" id="toggleHud"> Overlay HUD</label>
+          <label class="inline"><input type="checkbox" id="toggleSound" checked> Sound pre-alert</label>
+          <label class="inline">Pre-alert (sec): <input id="preAlert" type="number" min="1" max="60" value="10" class="num"></label>
+          <div class="flexspacer"></div>
+          <select id="location">
+            <option>Edgeville</option>
+            <option>Varrock</option>
+            <option>Yanille</option>
+          </select>
+          <div class="pill" id="autoDetect">auto: idle…</div>
+        </div>
+        <div class="btnrow">
+          <button id="forceChop">Force 5:00</button>
+          <button id="forceCool">Force 10:00</button>
+          <button id="resetAll">Reset</button>
+        </div>
+        <small>Starts automatically from chat and center popup OCR.</small>
+      </div>
+
+      <!-- Per-location live timers -->
+      <div class="card" id="card-Edgeville">
+        <h3>Edgeville</h3>
+        <div class="pair">
+          <div><div class="label">Chop (5:00)</div><div class="timer" id="Edgeville-chop">—:—</div></div>
+          <div><div class="label">Cooldown (10:00)</div><div class="timer" id="Edgeville-cool">—:—</div></div>
+        </div>
+        <div class="kv"><span>Logs:</span><b id="Edgeville-logs">0</b></div>
+        <div class="kv"><span>XP:</span><b id="Edgeville-xp">0</b></div>
+      </div>
+
+      <div class="card" id="card-Varrock">
+        <h3>Varrock</h3>
+        <div class="pair">
+          <div><div class="label">Chop (5:00)</div><div class="timer" id="Varrock-chop">—:—</div></div>
+          <div><div class="label">Cooldown (10:00)</div><div class="timer" id="Varrock-cool">—:—</div></div>
+        </div>
+        <div class="kv"><span>Logs:</span><b id="Varrock-logs">0</b></div>
+        <div class="kv"><span>XP:</span><b id="Varrock-xp">0</b></div>
+      </div>
+
+      <div class="card" id="card-Yanille">
+        <h3>Yanille</h3>
+        <div class="pair">
+          <div><div class="label">Chop (5:00)</div><div class="timer" id="Yanille-chop">—:—</div></div>
+          <div><div class="label">Cooldown (10:00)</div><div class="timer" id="Yanille-cool">—:—</div></div>
+        </div>
+        <div class="kv"><span>Logs:</span><b id="Yanille-logs">0</b></div>
+        <div class="kv"><span>XP:</span><b id="Yanille-xp">0</b></div>
+      </div>
+
+      <div class="card span-3">
+        <h2>Buffs (BiS)</h2>
+        <div class="row wrap">
+          <label><input type="checkbox" id="buf_juju"> Perfect Juju Woodcutting</label>
+          <label><input type="checkbox" id="buf_beaver"> Beaver Familiar</label>
+          <label><input type="checkbox" id="buf_sentinel"> Nature's Sentinel Armour</label>
+          <label><input type="checkbox" id="buf_torch"> Sana's Fyretorch</label>
+          <label><input type="checkbox" id="buf_cape"> Woodcutting Cape</label>
+          <label><input type="checkbox" id="buf_aura"> Lumberjack Aura</label>
+          <a id="bisLink" target="_blank" href="https://runescape.wiki/w/Elder_log#Obtaining">BiS / Elder logs guide</a>
+        </div>
+      </div>
+
+      <div class="card span-3">
+        <h2>Session Stats</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:8px;">
+          <div class="kv"><span>Runtime:</span><b id="uptime">00:00:00</b></div>
+          <div class="kv"><span>Total Logs:</span><b id="totalLogs">0</b></div>
+          <div class="kv"><span>Total XP:</span><b id="totalXP">0</b></div>
+          <div class="kv"><span>Total Chops:</span><b id="totalChops">0</b></div>
+        </div>
+        <div class="btnrow">
+          <button id="exportData">Export Data</button>
+          <button id="importData">Import Data</button>
+          <button id="resetStats" style="background:#5a2a2a; border-color:#7a3a3a;">Reset Stats</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Alt1 Elder Timer • v0.5.0</span>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
