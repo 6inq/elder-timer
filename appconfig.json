@@ -2,7 +2,6 @@
 	"appName": "Elder Timer (Alt1)",
 	"description": "Tracks Elder Tree 5m chop & 10m cooldown using chat + OCR. Per-location timers, overlay HUD, banner + minimap OCR, audio pre-alert.",
 	"appUrl": "./index.html",
-	"configUrl": "./appconfig.json",
 	"iconUrl": "./icon.jpg",
 	"defaultWidth": 1100,
 	"defaultHeight": 800,
