@@ -3,14 +3,15 @@
 	"description": "Tracks Elder Tree 5m chop & 10m cooldown using chat + OCR. Per-location timers, overlay HUD, banner + minimap OCR, audio pre-alert.",
 	"appUrl": "./index.html",
 	"configUrl": "./appconfig.json",
-	"iconUrl": "./icon.jpg",
+	"iconUrl": "./icon.png",
 	"defaultWidth": 1100,
 	"defaultHeight": 800,
 	"minWidth": 600,
 	"minHeight": 400,
 	"maxWidth": 1400,
 	"maxHeight": 1200,
-	"requestHandlers": [],
-	"activators": [],
+	"requestHandlers": [ ],
+	"activators": [	],
 	"permissions": "pixel,gamestate,overlay"
+
 }
